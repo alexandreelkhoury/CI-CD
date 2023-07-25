@@ -20,34 +20,15 @@ jobs:
       - run: npm ci
       - run: npm run test
 
-  # unit-test:
-  #   name: Run tests and build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node-version: "10.x"
-  #     - run: npm install
-  #     - run: npm run test
-  #     - run: npm run build
-
   build-test-publish:
     runs-on: ubuntu-latest
     steps:
 
-      # - name: Dockerise set-up
-      #   uses: docker/setup-qemu-action@v2
-
-      # - name: Set up Docker Buildx
-      #   uses: docker/setup-buildx-action@v2
-
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-
-      # - name: Build and push
-      #   uses: docker/build-push-action@v4
-      #   with:
-      #     push: true
-      #     tags: alexkhoury/projet-devops:latest 
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: alexkhoury/projet-devops:latest 
