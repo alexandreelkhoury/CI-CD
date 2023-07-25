@@ -12,7 +12,7 @@ jobs:
     steps:
 
       - name : Build Docker Image
-        run: docker build -t alexkhoury/projet-devops --file frontend/Dockerfile .
+        run: docker build -t alexkhoury/projet-devops ./frontend
 
       # - name: Run tests
       #   run: npm test
