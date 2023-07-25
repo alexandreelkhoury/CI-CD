@@ -14,4 +14,4 @@ services:
     container_name: projet-devops
     restart: always
     ports: 
-    - "3001:3000"
+    - "3000:3000"

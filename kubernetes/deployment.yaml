@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: projet-devops
+  labels:
+    app: mon-app
+spec:
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: my-react-app
+  template:
+    metadata:
+      labels:
+        app: my-react-app
+    spec:
+      containers:
+        - name: my-react-app
+          image: alexkhoury/projet-devops:latest 
+          ports:
+            - containerPort: 3000 
