@@ -20,19 +20,9 @@ jobs:
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-      - name: Copy frontend to temp folder
-        run: mkdir temp-frontend && cp -r frontend temp-frontend
-
       - name: Run tests
+        working-directory: /frontend 
         run: npm test
-        working-directory: ./temp-frontend
-
-      - name: Cleanup temp folder
-        run: rm -rf temp-frontend
-
-      # - name: Run tests
-      #   working-directory: ${{ GITHUB_WORKSPACE }}/frontend 
-      #   run: npm test
 
       - name: Build and push
         uses: docker/build-push-action@v4
