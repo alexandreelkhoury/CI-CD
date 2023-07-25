@@ -3,7 +3,7 @@ run-name: upload-to-dockerhub
 on:
   push : 
     branches:
-      - 'master'
+      - 'main'
 jobs:
   upload-to-dockerhub:
     runs-on: ubuntu-latest
