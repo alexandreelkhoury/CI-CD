@@ -3,11 +3,11 @@ version: '3'
 services:
 
   watchtower:
-      image: containrrr/watchtower
-      container_name: watchtower
-      volumes: 
-      - /var/run/docker.sock:/var/run/docker.sock
-      command: --schedule "* * * * *"
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes: 
+    - /var/run/docker.sock:/var/run/docker.sock
+    command: --schedule "* * * * *"
 
   projet-devops:
     image: alexkhoury/projet-devops
